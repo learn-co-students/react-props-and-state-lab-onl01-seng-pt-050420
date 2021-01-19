@@ -17,9 +17,9 @@ class App extends React.Component {
 
   changeType = (e) => {
     this.setState({
-      ...this.state,
+      ...this.state.pets,
       filters: {
-        type: ""
+        type: e.target.value
       }
     })
   }
@@ -41,9 +41,9 @@ class App extends React.Component {
   }
 
   adoptPet = (id) => {
-    this.state.pets.forEach(e => {
-      if (e.id === id){
-        e.isAdopted = true
+    this.state.pets.forEach(pet => {
+      if (pet.id === id){
+        pet.isAdopted = true
       }
     })
   }
