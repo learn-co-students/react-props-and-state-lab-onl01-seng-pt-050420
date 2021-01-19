@@ -36,8 +36,7 @@ class App extends React.Component {
     fetch(url)
     .then(res => res.json())
     .then(data => this.setState({
-      pets: [data],
-      ...this.state.filters
+      pets: data
     }))
   }
 
