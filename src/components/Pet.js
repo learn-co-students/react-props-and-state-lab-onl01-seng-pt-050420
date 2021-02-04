@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react' ;
 
 class Pet extends React.Component {
   render() {
@@ -26,4 +26,4 @@ class Pet extends React.Component {
   }
 }
 
-export default Pet
+export default Pet;

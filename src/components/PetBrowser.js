@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react'; 
 
-import Pet from './Pet'
+import Pet from './Pet';
 
 class PetBrowser extends React.Component {
   render() {
@@ -8,4 +8,4 @@ class PetBrowser extends React.Component {
   }
 }
 
-export default PetBrowser
+export default PetBrowser;
