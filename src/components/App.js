@@ -29,7 +29,7 @@ class App extends React.Component {
   onFindPetsClick = () => {
     console.log("App.js:30: onFindPetsClick()");
     if (this.state.filters.type === 'all') {
-      fetch("/api/pets")
+      fetch("/api/pets", this.state.filters.type)
         .then(response => response.json())
         .then(json => this.setState({
           pets: json
@@ -41,15 +41,23 @@ class App extends React.Component {
         .then(response => response.json())
         .then(json => this.setState({
           pets: json
-        })
+        }, () => console.log(this.state.pets))
       );
     }
   }
 
-  onAdoptPet = (id) => {
-    this.setState({
-      ...this.state
-    });
+  onAdoptPet = (petId) => {
+    let petList = this.state.pets.map((pet) => {
+      if (pet.id === petId)
+        return {...pet, isAdopted: true}
+      else
+        return pet;
+    })
+
+    this.setState(state => ({
+      ...state,
+      pets: petList
+    }), () => console.log({message: "App.js@60: ", object: this.state.pets}))
   }
 
   render() {
